@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - TOKOTANY BE MALAGASY</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <style>
+    /* Hero section */
+    .parallax-section {
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(120deg, #1d2b64, #f8cdda);
+      animation: gradientFlow 12s ease infinite;
+      color: white;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .parallax-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: -1;
+    }
+
+    /* Formulaire stylé */
+    .contact-form {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .contact-form:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-control {
+      border-radius: 12px;
+      padding-left: 42px;
+      background-color: #f4f7fb;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .form-group i {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #666;
+    }
+
+    button[type="submit"] {
+      border-radius: 30px;
+      padding: 10px 30px;
+      font-weight: 500;
+    }
+
+    /* Réseaux sociaux */
+    .social-links-contact {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .social-links-contact a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      color: #1d2b64;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links-contact a:hover {
+      transform: scale(1.15);
+      color: white;
+    }
+
+    .social-links-contact a.facebook { background: #3b5998; }
+    .social-links-contact a.whatsapp { background: #25D366; }
+    .social-links-contact a.instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .fade-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm animate__animated animate__fadeInDown">
+  <div class="container">
+      <a class="navbar-brand" href="index.html">TOKOTANY BE MALAGASY</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+              <li class="nav-item"><a class="nav-link active" href="#">À propos</a></li>
+              <li class="nav-item"><a class="nav-link" href="activities.html">Activités</a></li>
+              <li class="nav-item"><a class="nav-link" href="programs.html">Programmes</a></li>
+              <li class="nav-item"><a class="nav-link" href="organizations.html">Organisations</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+  <!-- Hero section -->
+  <section class="parallax-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Contactez-Nous</h1>
+      <p class="lead">Une question ? Une idée ? Nous sommes à votre écoute !</p>
+    </div>
+  </section>
+
+  <!-- Formulaire -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center fade-scroll">
+        <div class="col-lg-8">
+          <div class="contact-form">
+            <h3 class="mb-4 text-center">Formulaire de Contact</h3>
+            <form action="send_mail.php" method="POST">
+              <div class="form-group">
+                <i class="bi bi-person-fill"></i>
+                <input type="text" name="nom" class="form-control" placeholder="Votre nom" required>
+              </div>
+              <div class="form-group">
+                <i class="bi bi-envelope-fill"></i>
+                <input type="email" name="email" class="form-control" placeholder="Votre adresse email" required>
+              </div>
+              <div class="form-group">
+                <i class="bi bi-chat-left-dots-fill"></i>
+                <input type="text" name="objet" class="form-control" placeholder="Objet" required>
+              </div>
+              <div class="form-group">
+                <i class="bi bi-pencil-fill"></i>
+                <textarea name="message" class="form-control" rows="5" placeholder="Votre message..." required></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary px-5">Envoyer</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lien vers les réseaux sociaux -->
+      <div class="fade-scroll">
+        <h4 class="text-center mt-5">Ou contactez-nous directement sur :</h4>
+        <div class="social-links-contact mt-3">
+          <a href="https://facebook.com" class="facebook" target="_blank" title="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://wa.me/261341234567" class="whatsapp" target="_blank" title="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com" class="instagram" target="_blank" title="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll Animation -->
+  <script>
+    window.addEventListener("scroll", function () {
+      const elements = document.querySelectorAll(".fade-scroll");
+      elements.forEach((el) => {
+        const position = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (position < windowHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Ajouter FontAwesome pour les icônes -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<script src="js/footer.js"></script>
+
+  <!-- Ajouter FontAwesome pour les icônes -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  
+   <!-- Footer -->
+<footer class="bg-dark text-white text-center pt-5 pb-4">
+  <div class="container">
+    <!-- Liens rapides -->
+    <div class="row mb-4">
+      <div class="col-md-3 mb-4">
+        <h5>Liens rapides</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white">Accueil</a></li>
+          <li><a href="about.html" class="text-white">À propos</a></li>
+          <li><a href="activities.html" class="text-white">Activités</a></li>
+          <li><a href="programs.html" class="text-white">Programmes</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Nos services</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white">Aide aux sans-abris</a></li>
+          <li><a href="#" class="text-white">Équipes sportives</a></li>
+          <li><a href="#" class="text-white">Programmes éducatifs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Suivez-nous</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Contactez-nous</h5>
+        <p><i class="fas fa-map-marker-alt"></i> Antananarivo, Madagascar</p>
+        <p><i class="fas fa-phone"></i> +261 34 12 345 67</p>
+        <p><i class="fas fa-envelope"></i> info@tokontanybe.mg</p>
+      </div>
+    </div>
+    <!-- Newsletter -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6">
+        <h5>Abonnez-vous à notre newsletter</h5>
+        <form action="#" method="post">
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Votre adresse e-mail" required>
+            <button class="btn btn-primary" type="submit">S'abonner</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <p class="mb-0">&copy; 2025 TOKONTANY BE MALAGASY. Tous droits réservés.</p>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+
+
+</body>
+</html>

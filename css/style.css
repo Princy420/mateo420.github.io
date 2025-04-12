@@ -1,0 +1,827 @@
+/* Base styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Hero section */
+.hero-section {
+    height: 100vh;
+    background: url('../assets/images/hero-2.jpg') center center/cover no-repeat fixed;
+    position: relative;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+section h3 {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+section p {
+    color: #555;
+}
+
+/* HERO SECTION MODERNISÉ AVEC DÉGRADÉ ANIMÉ */
+.hero-gradient {
+    height: 100vh;
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #6dd5fa, #2193b0);
+    background-size: 400% 400%;
+    animation: gradientFlow 12s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-gradient h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-gradient p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.hero-gradient .btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.hero-gradient .btn:hover {
+    background-color: #ffffffcc;
+    color: #000;
+}
+
+/* Bulles animées dans le hero */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+.bubbles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    animation: bubble 20s linear infinite;
+    bottom: -150px;
+    border-radius: 50%;
+}
+
+.bubbles li:nth-child(1) {
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 25s;
+}
+.bubbles li:nth-child(2) {
+    left: 20%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 15s;
+}
+.bubbles li:nth-child(3) {
+    left: 25%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 22s;
+}
+.bubbles li:nth-child(4) {
+    left: 40%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 18s;
+}
+.bubbles li:nth-child(5) {
+    left: 70%;
+    width: 30px;
+    height: 30px;
+}
+.bubbles li:nth-child(6) {
+    left: 80%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 17s;
+}
+.bubbles li:nth-child(7) {
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 28s;
+}
+.bubbles li:nth-child(8) {
+    left: 65%;
+    width: 15px;
+    height: 15px;
+    animation-duration: 13s;
+}
+.bubbles li:nth-child(9) {
+    left: 90%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 20s;
+}
+.bubbles li:nth-child(10) {
+    left: 55%;
+    width: 45px;
+    height: 45px;
+    animation-duration: 26s;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-1000px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Hero À propos */
+.about-hero {
+    height: 50vh;
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+
+.about-hero h1, .about-hero p {
+    z-index: 2;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* Pour colorer une icône en violet (non inclus par défaut) */
+.text-purple {
+    color: #6f42c1;
+}
+
+/* Parallax Section */
+.parallax-section {
+    background: url('../assets/images/parallax-about.jpg') center center / cover fixed;
+    height: 50vh;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.parallax-section h2,
+.parallax-section p {
+    z-index: 2;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #0d6efd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 20px 30px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: #f8f9fa;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    animation: fadeInUp 1s ease both;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: #0d6efd;
+    top: 30px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item.right::before {
+    left: -10px;
+    right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item.right::before,
+    .timeline-item.left::before {
+        left: 30px;
+    }
+
+    .timeline::after {
+        left: 30px;
+    }
+}
+
+/* Parallax */
+.parallax-section {
+    background: url('../assets/images/parallax-activities.jpg') center center / cover fixed;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+  }
+  .parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+  }
+  
+  /* Timeline */
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px 0;
+  }
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #0d6efd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  .timeline-item {
+    padding: 20px 30px;
+    position: relative;
+    width: 50%;
+  }
+  .timeline-item.left { left: 0; }
+  .timeline-item.right { left: 50%; }
+  .timeline-content {
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius:
+
+    Parallax avec dégradé animé
+    .parallax-section {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: linear-gradient(45deg, #1e3c72, #2a5298);
+        animation: gradientMove 10s ease-in-out infinite;
+        z-index: 1;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+    }
+    
+    @keyframes gradientMove {
+        0% {
+        background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+        50% {
+        background: linear-gradient(45deg, #ff6a00, #ee0979);
+        }
+        100% {
+        background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+    }
+    
+  .parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+  }
+  
+  
+  /* Timeline */
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px 0;
+  }
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #0d6efd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  .timeline-item {
+    padding: 20px 30px;
+    position: relative;
+    width: 50%;
+  }
+  .timeline-item.left { left: 0; }
+  .timeline-item.right { left: 50%; }
+  .timeline-content {
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  }
+  .timeline-content h4 {
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+/* Parallax */
+.parallax-section {
+    background: url('../assets/images/parallax-organizations.jpg') center center / cover fixed;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+  }
+  .parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+  }
+  
+  /* Actualités des partenaires */
+  .card {
+    border: none;
+    border-radius: 8px;
+  }
+  .card img {
+    border-radius: 8px;
+  }
+  .card-body {
+    padding: 1.25rem;
+  }
+  .card-body h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .card-body p {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  .card-body a {
+    text-decoration: none;
+  }
+  
+  /* Effet d'apparition des images au défilement */
+.card img {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+  
+  .card.visible img {
+    opacity: 1;
+  }
+  
+  /* Détection du scroll */
+  .card {
+    opacity: 0;
+    transform: translateY(50px); /* Commence avec une position décalée vers le bas */
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+  
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0); /* Se déplace vers sa position d'origine */
+  }
+
+  .footer {
+    position: relative;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+  }
+  .footer.visible {
+    opacity: 1;
+  }
+  .footer-link {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-link:hover {
+    color: #f0b429;
+    text-decoration: underline;
+  }
+  .social-icon {
+    color: white;
+    font-size: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .social-icon:hover {
+    transform: scale(1.2);
+    color: #f0b429;
+  }
+  
+  /* Bulles animées */
+  .footer-bubbles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+  }
+  .footer-bubbles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    bottom: -150px;
+    animation: rise 20s infinite;
+    border-radius: 50%;
+  }
+  .footer-bubbles li:nth-child(1) { left: 10%; animation-duration: 10s; }
+  .footer-bubbles li:nth-child(2) { left: 30%; animation-duration: 12s; }
+  .footer-bubbles li:nth-child(3) { left: 50%; animation-duration: 15s; }
+  .footer-bubbles li:nth-child(4) { left: 70%; animation-duration: 18s; }
+  .footer-bubbles li:nth-child(5) { left: 90%; animation-duration: 20s; }
+  
+  @keyframes rise {
+    0%   { transform: translateY(0) scale(1); opacity: 0; }
+    50%  { opacity: 0.5; }
+    100% { transform: translateY(-400px) scale(0.8); opacity: 0; }
+  }
+
+  .footer {
+    position: relative;
+    background: linear-gradient(to right, #203a43, #2c5364);
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .footer-link {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-link:hover {
+    color: #f0b429;
+    text-decoration: underline;
+  }
+  
+  .social-icon {
+    color: white;
+    font-size: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .social-icon:hover {
+    transform: scale(1.2);
+    color: #f0b429;
+  }
+  
+  /* Bulles */
+  .footer-bubbles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+  }
+  .footer-bubbles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    bottom: -150px;
+    animation: rise 20s infinite;
+    border-radius: 50%;
+  }
+  .footer-bubbles li:nth-child(1) { left: 10%; animation-duration: 10s; }
+  .footer-bubbles li:nth-child(2) { left: 30%; animation-duration: 12s; }
+  .footer-bubbles li:nth-child(3) { left: 50%; animation-duration: 15s; }
+  .footer-bubbles li:nth-child(4) { left: 70%; animation-duration: 18s; }
+  .footer-bubbles li:nth-child(5) { left: 90%; animation-duration: 20s; }
+  
+  @keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateY(-400px) scale(0.8); opacity: 0; }
+  }
+
+  .grayscale-hover {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease-in-out;
+  }
+  .grayscale-hover:hover {
+    filter: grayscale(0%);
+  }
+/* Style global du footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding-top: 3rem;
+  }
+  
+  /* Liens du footer */
+  footer a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: #007bff;
+  }
+  
+  /* Liste des liens rapides */
+  footer .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Style du bouton d'abonnement */
+  footer .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+  }
+  
+  footer .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  /* Icones du footer */
+  footer .fas, footer .fab {
+    margin-right: 8px;
+    transition: color 0.3s ease;
+  }
+  
+  footer .fab:hover, footer .fas:hover {
+    color: #007bff;
+  }
+  
+  /* Section Newsletter */
+  footer .input-group input {
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    padding: 12px;
+  }
+  
+  footer .input-group button {
+    border-radius: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  footer .input-group button:hover {
+    background-color: #218838;
+  }
+  
+  /* Effet de survol des colonnes du footer */
+  footer .col-md-3:hover {
+    background-color: #444;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Style de la carte pour l'adresse */
+  footer i.fas.fa-map-marker-alt {
+    margin-right: 10px;
+  }
+  
+  footer i.fas.fa-phone, footer i.fas.fa-envelope {
+    margin-right: 10px;
+  }
+  
+  /* Responsivité */
+  @media (max-width: 767px) {
+    footer .row > div {
+      margin-bottom: 20px;
+    }
+    footer .input-group {
+      width: 100%;
+    }
+  }
+
+  /* Animation d'apparition de la navbar */
+.navbar {
+    animation: fadeInDown 1s ease-out;
+  }
+  
+  /* Effet de survol sur les liens */
+  .navbar-nav .nav-link {
+    position: relative;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Animation de soulignement et changement de couleur sur survol */
+  .navbar-nav .nav-link:hover {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+  }
+  
+  /* Changer la couleur de fond au survol de la navbar */
+  .navbar:hover {
+    background-color: #232323;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Effet de l'ombre sur la navbar sticky */
+  .navbar.sticky-top {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Animation au clic sur la navbar */
+  .navbar-toggler {
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-toggler:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Animation au survol du hamburger menu */
+  .navbar-toggler-icon {
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-toggler:hover .navbar-toggler-icon {
+    background-color: #007bff;
+  }
+  
+  /* Responsive design : ajustement sur mobile */
+  @media (max-width: 991px) {
+    .navbar-nav {
+      text-align: center;
+    }
+  
+    .navbar-nav .nav-item {
+      margin-bottom: 10px;
+    }
+  }
+  .navbar-hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+/* Style du bouton de retour en haut */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none; /* Caché par défaut */
+    transition: all 0.3s ease;
+  }
+  
+  /* Afficher le bouton lorsqu'il est visible */
+  .scroll-to-top.visible {
+    display: block;
+  }
+  .carousel img {
+    display: none;
+    width: 100%;
+    height: auto;
+  }
+  
+  .carousel img.visible {
+    display: block;
+  }
+  

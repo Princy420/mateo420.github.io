@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Message envoyé - TOKOTANY BE MALAGASY</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+  <style>
+    body {
+      background: linear-gradient(120deg, #1d2b64, #f8cdda);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .confirmation-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .confirmation-box i {
+      font-size: 4rem;
+      color: #00e676;
+      margin-bottom: 20px;
+    }
+
+    .btn-home {
+      margin-top: 25px;
+      background-color: white;
+      color: #1d2b64;
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 10px 30px;
+      transition: 0.3s ease;
+    }
+
+    .btn-home:hover {
+      background-color: #f8cdda;
+      color: #1d2b64;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confirmation-box">
+    <i class="bi bi-check-circle-fill"></i>
+    <h1>Message envoyé !</h1>
+    <p>Merci pour votre message. Nous vous répondrons dès que possible.</p>
+    <a href="index.html" class="btn btn-home">Retour à l'accueil</a>
+  </div>
+
+  
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<?php
+// Inclure les classes PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Autoload avec Composer
+require 'vendor/autoload.php';
+
+// ou si pas de Composer, utiliser :
+// require 'PHPMailer/src/Exception.php';
+// require 'PHPMailer/src/PHPMailer.php';
+// require 'PHPMailer/src/SMTP.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nom = htmlspecialchars(trim($_POST["nom"]));
+    $email = htmlspecialchars(trim($_POST["email"]));
+    $objet = htmlspecialchars(trim($_POST["objet"]));
+    $message = htmlspecialchars(trim($_POST["message"]));
+
+    // Préparer le corps de l’email
+    $body = "
+        <h2>Message depuis le site TOKOTANY BE MALAGASY</h2>
+        <p><strong>Nom :</strong> $nom</p>
+        <p><strong>Email :</strong> $email</p>
+        <p><strong>Objet :</strong> $objet</p>
+        <p><strong>Message :</strong><br>$message</p>
+    ";
+
+    // Création de l'email
+    $mail = new PHPMailer(true);
+
+    try {
+        // Configuration du serveur SMTP
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';     // Serveur SMTP
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'tonemail@gmail.com'; // 🔁 remplace avec TON email
+        $mail->Password   = 'ton-mot-de-passe-app'; // 🔁 mot de passe d'application
+        $mail->SMTPSecure = 'tls';                // encryption: ssl ou tls
+        $mail->Port       = 587;
+
+        // Infos de l’expéditeur
+        $mail->setFrom('tonemail@gmail.com', 'TOKOTANY BE MALAGASY');
+        $mail->addAddress('rajaonarisonmateo@gmail.com'); // destinataire
+
+        // Contenu de l’email
+        $mail->isHTML(true);
+        $mail->Subject = "Formulaire de contact : $objet";
+        $mail->Body    = $body;
+
+        // Envoi
+        $mail->send();
+
+        echo "<script>alert('Merci ! Votre message a été envoyé avec succès.'); window.location.href='contact.html';</script>";
+    } catch (Exception $e) {
+        echo "<script>alert(\"Erreur : le message n'a pas pu être envoyé. {$mail->ErrorInfo}\"); window.history.back();</script>";
+    }
+} else {
+    header("Location: contact.html");
+    exit();
+}
