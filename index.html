@@ -22,6 +22,19 @@
     <!-- Lien Animate.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
+    <style>
+  #followBtn {
+    transition: all 0.3s ease;
+  }
+
+  #followBtn:hover {
+    background-color: #ffc107; /* plus clair */
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+    transform: scale(1.05);
+  }
+</style>
+
+
 </head>
 <body>
 
@@ -44,8 +57,8 @@
             
                 <!-- Bouton Abonnez-vous -->
                 <li class="nav-item ms-3">
-                    <button id="followBtn" class="btn btn-outline-warning btn-sm">
-                        👍 Abonnez-vous (<span id="followerCount">0</span>)
+                    <button id="followBtn" class="btn btn-warning rounded-pill fw-semibold px-3">
+                        ❤️ Abonnez-vous (<span id="followerCount">0</span>)
                     </button>
                 </li>
             </ul>
@@ -269,6 +282,20 @@
         followerCount.textContent = followers;
       });
     </script>
+
+    <script>
+  const followBtn = document.getElementById("followBtn");
+  const followerCount = document.getElementById("followerCount");
+
+  let followers = parseInt(localStorage.getItem("followers") || "0");
+  followerCount.textContent = followers;
+
+  followBtn.addEventListener("click", () => {
+    followers += 1;
+    localStorage.setItem("followers", followers);
+    followerCount.textContent = followers;
+  });
+</script>
 
   
 </body>
