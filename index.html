@@ -61,6 +61,11 @@
                         ❤️ Abonnez-vous (<span id="followerCount">0</span>)
                     </button>
                 </li>
+                <li class="nav-item d-flex align-items-center ms-3">
+                  <button id="follow-btn" onclick="addFollower()" class="btn btn-sm btn-primary">
+                    Abonnez-vous <span id="follower-count" class="badge bg-light text-dark ms-1">0</span>
+                  </button>
+                </li>
             </ul>
         </div>
     </div>
@@ -314,6 +319,48 @@
   });
 </script>
 
+<!-- Firebase App -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<!-- Firebase Realtime Database -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAygEKZ***********", // remplace par ta vraie clé
+    authDomain: "tokontany-followers.firebaseapp.com",
+    databaseURL: "https://tokontany-followers-default-rtdb.firebaseio.com",
+    projectId: "tokontany-followers",
+    storageBucket: "tokontany-followers.appspot.com",
+    messagingSenderId: "TON_SENDER_ID",
+    appId: "TON_APP_ID"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+
+  // Lire le compteur existant
+  function updateFollowerCount() {
+    database.ref('followers/count').on('value', (snapshot) => {
+      const count = snapshot.val() || 0;
+      document.getElementById('follower-count').textContent = count;
+    });
+  }
+
+  // Incrémenter le compteur
+  function addFollower() {
+    const ref = database.ref('followers/count');
+    ref.transaction(current => (current || 0) + 1);
+    const btn = document.getElementById('follow-btn');
+    btn.disabled = true;
+    btn.textContent = "Merci 🙏";
+    btn.classList.remove("btn-primary");
+    btn.classList.add("btn-success");
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateFollowerCount();
+  });
+</script>
 
   
 </body>
