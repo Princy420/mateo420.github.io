@@ -1,115 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOKONTANY BE MALAGASY</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOKONTANY BE MALAGASY</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Animations -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Lien Animate.css -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-    <style>
-  #followBtn {
-    transition: all 0.3s ease;
-  }
-
-  #followBtn:hover {
-    background-color: #ffc107; /* plus clair */
-    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
-    transform: scale(1.05);
-  }
-</style>
-
-
+  <style>
+    /* Style pour le bouton S’abonner */
+    #follow-btn {
+      transition: all 0.3s ease;
+    }
+    #follow-btn:hover {
+      background-color: #ffc107; /* plus clair */
+      box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm animate__animated animate__fadeInDown">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm animate__animated animate__fadeInDown">
     <div class="container">
-        <a class="navbar-brand" href="index.html">TOKONTANY BE MALAGASY</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav"> 
-            <!-- Ajout dans <ul class="navbar-nav">, tout à la fin -->
-            <ul class="navbar-nav align-items-center">
-                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link active" href="about">À propos</a></li>
-                <li class="nav-item"><a class="nav-link" href="activities.html">Activités</a></li>
-                <li class="nav-item"><a class="nav-link" href="programs.html">Programmes</a></li>
-                <li class="nav-item"><a class="nav-link" href="organizations.html">Organisations</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            
-                <!-- Bouton Abonnez-vous -->
-                <li class="nav-item ms-3">
-                    <button id="follow-btn" class="btn btn-primary btn-sm ms-3">S’abonner</button>
-                    <span id="follower-count" class="text-white ms-2 small">0 abonnés</span>
-                </li>
-                <li class="nav-item d-flex align-items-center ms-3">
-                  <button id="follow-btn" onclick="addFollower()" class="btn btn-sm btn-primary">
-                    Abonnez-vous <span id="follower-count" class="badge bg-light text-dark ms-1">0</span>
-                  </button>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-    <!-- Hero Section Modernisé -->
-    <header class="hero-gradient d-flex align-items-center">
-                <!-- Bulles animées -->
-        <ul class="bubbles">
-            <li></li><li></li><li></li><li></li><li></li>
-            <li></li><li></li><li></li><li></li><li></li>
+      <a class="navbar-brand" href="index.html">TOKONTANY BE MALAGASY</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav"> 
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="activities.html">Activités</a></li>
+          <li class="nav-item"><a class="nav-link" href="programs.html">Programmes</a></li>
+          <li class="nav-item"><a class="nav-link" href="organizations.html">Organisations</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          
+          <!-- Bouton S’abonner avec compteur -->
+          <li class="nav-item ms-3 d-flex align-items-center">
+            <button id="follow-btn" onclick="addFollower()" class="btn btn-primary btn-sm">S’abonner</button>
+            <span id="follower-count" class="text-white ms-2 small">0 abonnés</span>
+          </li>
         </ul>
+      </div>
+    </div>
+  </nav>
 
-        <div class="container text-center text-white">
-            <h1 class="display-2 fw-bold animate__animated animate__fadeInDown">TOKONTANY BE MALAGASY</h1>
-            <p class="lead mt-3 animate__animated animate__fadeInUp">Soutenir, Unir, Changer des vies.</p>
-            <a href="about.html" class="btn btn-light btn-lg mt-4 animate__animated animate__zoomIn">En savoir plus</a>
+  <!-- Hero Section Modernisé -->
+  <header class="hero-gradient d-flex align-items-center">
+    <!-- Bulles animées -->
+    <ul class="bubbles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+    <div class="container text-center text-white">
+      <h1 class="display-2 fw-bold animate__animated animate__fadeInDown">TOKONTANY BE MALAGASY</h1>
+      <p class="lead mt-3 animate__animated animate__fadeInUp">Soutenir, Unir, Changer des vies.</p>
+      <a href="about.html" class="btn btn-light btn-lg mt-4 animate__animated animate__zoomIn">En savoir plus</a>
+    </div>
+  </header>
+
+  <!-- Présentation rapide -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <h3>🏠 Aide aux sans-abris</h3>
+          <p>Nous intervenons directement pour offrir nourriture, vêtements et abri à ceux qui en ont besoin.</p>
         </div>
-    </header>
-
-
-
-    <!-- Présentation rapide -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4 mb-4">
-                    <h3>🏠 Aide aux sans-abris</h3>
-                    <p>Nous intervenons directement pour offrir nourriture, vêtements et abri à ceux qui en ont besoin.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h3>⚽ Équipes sportives</h3>
-                    <p>Nous utilisons le sport pour développer la solidarité et l’esprit d’équipe chez les jeunes.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h3>💡 Programmes éducatifs</h3>
-                    <p>Formations, ateliers, et soutien scolaire pour favoriser la réinsertion sociale.</p>
-                </div>
-            </div>
+        <div class="col-md-4 mb-4">
+          <h3>⚽ Équipes sportives</h3>
+          <p>Nous utilisons le sport pour développer la solidarité et l’esprit d’équipe chez les jeunes.</p>
         </div>
-    </section>
+        <div class="col-md-4 mb-4">
+          <h3>💡 Programmes éducatifs</h3>
+          <p>Formations, ateliers, et soutien scolaire pour favoriser la réinsertion sociale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Section Témoignages -->
-<section class="py-5 bg-white">
+  <!-- Section Témoignages -->
+  <section class="py-5 bg-white">
     <div class="container">
       <h2 class="text-center mb-5">💬 Témoignages</h2>
       <div class="row">
@@ -141,8 +126,8 @@
     </div>
   </section>
 
-<!-- Section Partenaires -->
-<section class="py-5 bg-light">
+  <!-- Section Partenaires -->
+  <section class="py-5 bg-light">
     <div class="container text-center">
       <h2 class="mb-5">🤝 Nos Partenaires</h2>
       <div class="row">
@@ -176,33 +161,27 @@
       </div>
     </div>
   </section>
-  
-  
 
-    <!-- Script JavaScript pour détecter le défilement -->
+  <!-- Script JavaScript pour détecter le défilement -->
   <script>
-    // Fonction pour détecter le scroll et appliquer l'animation
     window.addEventListener('scroll', function() {
       const cards = document.querySelectorAll('.card');
-
       cards.forEach(card => {
         const cardPosition = card.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-
-        // Si la carte est visible à l'écran
         if (cardPosition < windowHeight - 50) {
-          card.classList.add('visible'); // Appliquer l'animation
+          card.classList.add('visible');
         }
       });
     });
   </script>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
 
-   <!-- Footer -->
-<footer class="bg-dark text-white text-center pt-5 pb-4">
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center pt-5 pb-4">
     <div class="container">
       <!-- Liens rapides -->
       <div class="row mb-4">
@@ -226,8 +205,8 @@
         <div class="col-md-3 mb-4">
           <h5>Suivez-nous</h5>
           <ul class="list-unstyled">
-            <li><a href="https://www>facebook.com/profile.php?id=61567949001928" class="text-white"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-            <li><a href="https://wa.me/261345045624" class="text-white"><i class="fab fa-whatsapp"></i> WhatsApp </a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61567949001928" class="text-white"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="https://wa.me/261345045624" class="text-white"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
           </ul>
         </div>
         <div class="col-md-3 mb-4">
@@ -253,99 +232,48 @@
       <p class="mb-0">&copy; 2025 TOKONTANY BE MALAGASY - by Princy Rajaonarison.</p>
     </div>
   </footer>
-  
-  <script src="js/script.js"></script>
 
-        
-    
-        <script>
-      const followBtn = document.getElementById("followBtn");
-      const followerCount = document.getElementById("followerCount");
-    
-      let followers = parseInt(localStorage.getItem("followers") || "0");
-      followerCount.textContent = followers;
-    
-      followBtn.addEventListener("click", () => {
-        followers += 1;
-        localStorage.setItem("followers", followers);
-        followerCount.textContent = followers;
+  <!-- Firebase App (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <!-- Firebase Realtime Database (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <script>
+    // Remplace ces valeurs par celles fournies par Firebase dans ton projet.
+    const firebaseConfig = {
+      apiKey: "AIzaSyAygEKZ***********",
+      authDomain: "tokontany-followers.firebaseapp.com",
+      databaseURL: "https://tokontany-followers-default-rtdb.firebaseio.com",
+      projectId: "tokontany-followers",
+      storageBucket: "tokontany-followers.appspot.com",
+      messagingSenderId: "TON_SENDER_ID",
+      appId: "TON_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Fonction pour mettre à jour le compteur en temps réel
+    function updateFollowerCount() {
+      database.ref('followers/count').on('value', (snapshot) => {
+        const count = snapshot.val() || 0;
+        document.getElementById('follower-count').textContent = `${count} abonnés`;
       });
-    </script>
-
-    <script>
-  const followBtn = document.getElementById("followBtn");
-  const followerCount = document.getElementById("followerCount");
-
-  let followers = parseInt(localStorage.getItem("followers") || "0");
-  let hasFollowed = localStorage.getItem("hasFollowed") === "true";
-
-  // Mise à jour de l'affichage initial
-  followerCount.textContent = followers;
-
-  if (hasFollowed) {
-    followBtn.textContent = "🙏 Merci !";
-    followBtn.classList.remove("btn-warning");
-    followBtn.classList.add("btn-success");
-    followBtn.disabled = true;
-  }
-
-  followBtn.addEventListener("click", () => {
-    if (!hasFollowed) {
-      followers += 1;
-      localStorage.setItem("followers", followers);
-      localStorage.setItem("hasFollowed", "true");
-      followBtn.textContent = "🙏 Merci !";
-      followBtn.classList.remove("btn-warning");
-      followBtn.classList.add("btn-success");
-      followBtn.disabled = true;
-      followerCount.textContent = followers;
     }
-  });
-</script>
 
-<!-- Firebase App -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-<!-- Firebase Realtime Database -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    // Fonction pour incrémenter le compteur global lors d'un clic
+    function addFollower() {
+      const ref = database.ref('followers/count');
+      ref.transaction(current => (current || 0) + 1);
+      const btn = document.getElementById('follow-btn');
+      btn.disabled = true;
+      btn.textContent = "Merci 🙏";
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-success");
+    }
 
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyAygEKZ***********", // remplace par ta vraie clé
-    authDomain: "tokontany-followers.firebaseapp.com",
-    databaseURL: "https://tokontany-followers-default-rtdb.firebaseio.com",
-    projectId: "tokontany-followers",
-    storageBucket: "tokontany-followers.appspot.com",
-    messagingSenderId: "TON_SENDER_ID",
-    appId: "TON_APP_ID"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-
-  // Lire le compteur existant
-  function updateFollowerCount() {
-    database.ref('followers/count').on('value', (snapshot) => {
-      const count = snapshot.val() || 0;
-      document.getElementById('follower-count').textContent = count;
+    document.addEventListener('DOMContentLoaded', () => {
+      updateFollowerCount();
     });
-  }
-
-  // Incrémenter le compteur
-  function addFollower() {
-    const ref = database.ref('followers/count');
-    ref.transaction(current => (current || 0) + 1);
-    const btn = document.getElementById('follow-btn');
-    btn.disabled = true;
-    btn.textContent = "Merci 🙏";
-    btn.classList.remove("btn-primary");
-    btn.classList.add("btn-success");
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    updateFollowerCount();
-  });
-</script>
-
-  
+  </script>
 </body>
 </html>
