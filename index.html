@@ -29,6 +29,17 @@
       box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
       transform: scale(1.05);
     }
+    
+    /* Nouveau style pour le compteur d'abonnés */
+    #follower-count {
+      background-color: #ffc107;
+      color: #212529;
+      padding: 2px 6px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-left: 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -52,7 +63,7 @@
           <!-- Bouton S’abonner avec compteur -->
           <li class="nav-item ms-3 d-flex align-items-center">
             <button id="follow-btn" onclick="addFollower()" class="btn btn-primary btn-sm">S’abonner</button>
-            <span id="follower-count" class="text-white ms-2 small">0 abonnés</span>
+            <span id="follower-count">0 abonnés</span>
           </li>
         </ul>
       </div>
