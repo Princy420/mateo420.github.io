@@ -57,9 +57,8 @@
             
                 <!-- Bouton Abonnez-vous -->
                 <li class="nav-item ms-3">
-                    <button id="followBtn" class="btn btn-warning rounded-pill fw-semibold px-2 py-1 small d-none d-sm-inline-block">
-                        ❤️ Abonnez-vous (<span id="followerCount">0</span>)
-                    </button>
+                    <button id="follow-btn" class="btn btn-primary btn-sm ms-3">S’abonner</button>
+                    <span id="follower-count" class="text-white ms-2 small">0 abonnés</span>
                 </li>
                 <li class="nav-item d-flex align-items-center ms-3">
                   <button id="follow-btn" onclick="addFollower()" class="btn btn-sm btn-primary">
@@ -257,22 +256,7 @@
   
   <script src="js/script.js"></script>
 
-        <script>
-      // Fonction pour gérer les followers localement
-      const followBtn = document.getElementById("followBtn");
-      const followerCount = document.getElementById("followerCount");
-    
-      // Charger le compteur depuis le localStorage
-      let followers = parseInt(localStorage.getItem("followers") || "0");
-      followerCount.textContent = followers;
-    
-      // Quand on clique sur le bouton
-      followBtn.addEventListener("click", () => {
-        followers += 1;
-        localStorage.setItem("followers", followers);
-        followerCount.textContent = followers;
-      });
-    </script>
+        
     
         <script>
       const followBtn = document.getElementById("followBtn");
