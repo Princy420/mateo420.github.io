@@ -32,7 +32,13 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav"> 
+            <!-- Ajout dans <ul class="navbar-nav">, tout à la fin -->
+            <li class="nav-item">
+                <button id="followBtn" class="btn btn-outline-warning btn-sm ms-3">
+                    👍 Abonnez-vous (<span id="followerCount">0</span>)
+              </button>
+                
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
                 <li class="nav-item"><a class="nav-link active" href="about.html">À propos</a></li>
@@ -41,6 +47,7 @@
                 <li class="nav-item"><a class="nav-link" href="organizations.html">Organisations</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
+            </li>
         </div>
     </div>
 </nav>
@@ -230,6 +237,23 @@
   </footer>
   
   <script src="js/script.js"></script>
+
+    <script>
+  // Fonction pour gérer les followers localement
+  const followBtn = document.getElementById("followBtn");
+  const followerCount = document.getElementById("followerCount");
+
+  // Charger le compteur depuis le localStorage
+  let followers = parseInt(localStorage.getItem("followers") || "0");
+  followerCount.textContent = followers;
+
+  // Quand on clique sur le bouton
+  followBtn.addEventListener("click", () => {
+    followers += 1;
+    localStorage.setItem("followers", followers);
+    followerCount.textContent = followers;
+  });
+</script>
 
   
 </body>
