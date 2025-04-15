@@ -20,17 +20,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Style pour le bouton S’abonner */
     #follow-btn {
       transition: all 0.3s ease;
     }
     #follow-btn:hover {
-      background-color: #ffc107; /* plus clair */
+      background-color: #ffc107;
       box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
       transform: scale(1.05);
     }
-    
-    /* Nouveau style pour le compteur d'abonnés */
     #follower-count {
       background-color: #ffc107;
       color: #212529;
@@ -44,7 +41,6 @@
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm animate__animated animate__fadeInDown">
     <div class="container">
       <a class="navbar-brand" href="index.html">TOKONTANY BE MALAGASY</a>
@@ -59,10 +55,7 @@
           <li class="nav-item"><a class="nav-link" href="programs.html">Programmes</a></li>
           <li class="nav-item"><a class="nav-link" href="organizations.html">Organisations</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          
-          <!-- Bouton S’abonner avec compteur -->
           <li class="nav-item ms-3 d-flex align-items-center">
-            <button id="follow-btn" onclick="addFollower()" class="btn btn-primary btn-sm">S’abonner</button>
             <span id="follower-count">0 abonnés</span>
           </li>
         </ul>
@@ -70,131 +63,113 @@
     </div>
   </nav>
 
-  <!-- Hero Section Modernisé -->
-  <header class="hero-gradient d-flex align-items-center">
-    <!-- Bulles animées -->
-    <ul class="bubbles">
-      <li></li><li></li><li></li><li></li><li></li>
-      <li></li><li></li><li></li><li></li><li></li>
-    </ul>
-    <div class="container text-center text-white">
-      <h1 class="display-2 fw-bold animate__animated animate__fadeInDown">TOKONTANY BE MALAGASY</h1>
-      <p class="lead mt-3 animate__animated animate__fadeInUp">Soutenir, Unir, Changer des vies.</p>
-      <a href="about.html" class="btn btn-light btn-lg mt-4 animate__animated animate__zoomIn">En savoir plus</a>
-    </div>
-  </header>
-
-  <!-- Présentation rapide -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-4 mb-4">
-          <h3>🏠 Aide aux sans-abris</h3>
-          <p>Nous intervenons directement pour offrir nourriture, vêtements et abri à ceux qui en ont besoin.</p>
+    <!-- Hero Section Modernisé -->
+    <header class="hero-gradient d-flex align-items-center">
+        <!-- Bulles animées -->
+        <ul class="bubbles">
+          <li></li><li></li><li></li><li></li><li></li>
+          <li></li><li></li><li></li><li></li><li></li>
+        </ul>
+        <div class="container text-center text-white">
+          <h1 class="display-2 fw-bold animate__animated animate__fadeInDown">TOKONTANY BE MALAGASY</h1>
+          <p class="lead mt-3 animate__animated animate__fadeInUp">Soutenir, Unir, Changer des vies.</p>
+          <a href="about.html" class="btn btn-light btn-lg mt-4 animate__animated animate__zoomIn">En savoir plus</a>
         </div>
-        <div class="col-md-4 mb-4">
-          <h3>⚽ Équipes sportives</h3>
-          <p>Nous utilisons le sport pour développer la solidarité et l’esprit d’équipe chez les jeunes.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <h3>💡 Programmes éducatifs</h3>
-          <p>Formations, ateliers, et soutien scolaire pour favoriser la réinsertion sociale.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Témoignages -->
-  <section class="py-5 bg-white">
-    <div class="container">
-      <h2 class="text-center mb-5">💬 Témoignages</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card shadow animate__animated animate__fadeInUp">
-            <div class="card-body">
-              <p class="card-text">“Grâce à TOKONTANY BE MALAGASY, j’ai pu retrouver un emploi et une vie stable.”</p>
-              <h5 class="card-title mt-3">— Jean, Antananarivo</h5>
+      </header>
+    
+      <!-- Présentation rapide -->
+      <section class="py-5 bg-light">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-4 mb-4">
+              <h3>🏠 Aide aux sans-abris</h3>
+              <p>Nous intervenons directement pour offrir nourriture, vêtements et abri à ceux qui en ont besoin.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+              <h3>⚽ Équipes sportives</h3>
+              <p>Nous utilisons le sport pour développer la solidarité et l’esprit d’équipe chez les jeunes.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+              <h3>💡 Programmes éducatifs</h3>
+              <p>Formations, ateliers, et soutien scolaire pour favoriser la réinsertion sociale.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="card shadow animate__animated animate__fadeInUp animate__delay-1s">
-            <div class="card-body">
-              <p class="card-text">“Les ateliers éducatifs ont complètement changé la vision de mon avenir.”</p>
-              <h5 class="card-title mt-3">— Aina, Fianarantsoa</h5>
+      </section>
+    
+      <!-- Section Témoignages -->
+      <section class="py-5 bg-white">
+        <div class="container">
+          <h2 class="text-center mb-5">💬 Témoignages</h2>
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="card shadow animate__animated animate__fadeInUp">
+                <div class="card-body">
+                  <p class="card-text">“Grâce à TOKONTANY BE MALAGASY, j’ai pu retrouver un emploi et une vie stable.”</p>
+                  <h5 class="card-title mt-3">— Jean, Antananarivo</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card shadow animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="card-body">
+                  <p class="card-text">“Les ateliers éducatifs ont complètement changé la vision de mon avenir.”</p>
+                  <h5 class="card-title mt-3">— Aina, Fianarantsoa</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card shadow animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="card-body">
+                  <p class="card-text">“Je n’aurais jamais pensé que le sport pouvait m’apporter autant d’espoir.”</p>
+                  <h5 class="card-title mt-3">— Solofo, Tamatave</h5>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="card shadow animate__animated animate__fadeInUp animate__delay-2s">
-            <div class="card-body">
-              <p class="card-text">“Je n’aurais jamais pensé que le sport pouvait m’apporter autant d’espoir.”</p>
-              <h5 class="card-title mt-3">— Solofo, Tamatave</h5>
+      </section>
+    
+      <!-- Section Partenaires -->
+      <section class="py-5 bg-light">
+        <div class="container text-center">
+          <h2 class="mb-5">🤝 Nos Partenaires</h2>
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-lg h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Partenaire 1</h5>
+                  <p class="card-text">Un acteur clé dans le domaine de l’aide humanitaire, notre partenaire s'engage activement à améliorer les conditions de vie des plus vulnérables.</p>
+                  <a href="#" class="btn btn-primary mt-3">En savoir plus</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-lg h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Partenaire 2</h5>
+                  <p class="card-text">Nous travaillons main dans la main avec ce partenaire pour offrir des solutions de logement abordables et durables pour les familles nécessiteuses.</p>
+                  <a href="#" class="btn btn-primary mt-3">En savoir plus</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-lg h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Partenaire 3</h5>
+                  <p class="card-text">Avec ce partenaire, nous organisons des programmes éducatifs pour aider les jeunes à accéder à une éducation de qualité et à des opportunités de développement personnel.</p>
+                  <a href="#" class="btn btn-primary mt-3">En savoir plus</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Partenaires -->
-  <section class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="mb-5">🤝 Nos Partenaires</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-lg h-100">
-            <div class="card-body">
-              <h5 class="card-title">Partenaire 1</h5>
-              <p class="card-text">Un acteur clé dans le domaine de l’aide humanitaire, notre partenaire s'engage activement à améliorer les conditions de vie des plus vulnérables.</p>
-              <a href="#" class="btn btn-primary mt-3">En savoir plus</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-lg h-100">
-            <div class="card-body">
-              <h5 class="card-title">Partenaire 2</h5>
-              <p class="card-text">Nous travaillons main dans la main avec ce partenaire pour offrir des solutions de logement abordables et durables pour les familles nécessiteuses.</p>
-              <a href="#" class="btn btn-primary mt-3">En savoir plus</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-lg h-100">
-            <div class="card-body">
-              <h5 class="card-title">Partenaire 3</h5>
-              <p class="card-text">Avec ce partenaire, nous organisons des programmes éducatifs pour aider les jeunes à accéder à une éducation de qualité et à des opportunités de développement personnel.</p>
-              <a href="#" class="btn btn-primary mt-3">En savoir plus</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Script JavaScript pour détecter le défilement -->
-  <script>
-    window.addEventListener('scroll', function() {
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        const cardPosition = card.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (cardPosition < windowHeight - 50) {
-          card.classList.add('visible');
-        }
-      });
-    });
-  </script>
-
-  <!-- Bootstrap Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+      </section>
+    
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center pt-5 pb-4">
     <div class="container">
-      <!-- Liens rapides -->
       <div class="row mb-4">
         <div class="col-md-3 mb-4">
           <h5>Liens rapides</h5>
@@ -227,64 +202,138 @@
           <p><i class="fas fa-envelope"></i> info@tokontanybe.mg</p>
         </div>
       </div>
-      <!-- Newsletter -->
       <div class="row justify-content-center mb-4">
         <div class="col-md-6">
-          <h5>Abonnez-vous à notre newsletter</h5>
-          <form action="#" method="post">
+          <h5>Abonnez-vous à tokontany be Malagasy </h5>
+          <form id="newsletter-form">
             <div class="input-group">
-              <input type="email" class="form-control" placeholder="Votre adresse e-mail" required>
+              <input type="email" id="newsletter-email" class="form-control" placeholder="Votre adresse e-mail" required>
               <button class="btn btn-primary" type="submit">S'abonner</button>
             </div>
           </form>
+          <div id="newsletter-message" class="mt-2 text-success"></div>
         </div>
       </div>
-      <!-- Copyright -->
       <p class="mb-0">&copy; 2025 TOKONTANY BE MALAGASY - by Princy Rajaonarison.</p>
     </div>
   </footer>
 
-  <!-- Firebase App (compat) -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <!-- Firebase Realtime Database (compat) -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+<!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
   <script>
-    // Remplace ces valeurs par celles fournies par Firebase dans ton projet.
     const firebaseConfig = {
-      apiKey: "AIzaSyAygEKZ***********",
+      apiKey: "AIzaSyAO-ZOlRKJRj319BAdbJM1DAInBEEWJsOg",
       authDomain: "tokontany-followers.firebaseapp.com",
       databaseURL: "https://tokontany-followers-default-rtdb.firebaseio.com",
       projectId: "tokontany-followers",
-      storageBucket: "tokontany-followers.appspot.com",
-      messagingSenderId: "TON_SENDER_ID",
-      appId: "TON_APP_ID"
+      storageBucket: "tokontany-followers.firebasestorage.app",
+      messagingSenderId: "98131171089",
+      appId: "1:98131171089:web:57a07bf410939e32081eb0"
     };
-
-    firebase.initializeApp(firebaseConfig);
+  
+    const app = firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
-
-    // Fonction pour mettre à jour le compteur en temps réel
-    function updateFollowerCount() {
-      database.ref('followers/count').on('value', (snapshot) => {
-        const count = snapshot.val() || 0;
-        document.getElementById('follower-count').textContent = `${count} abonnés`;
-      });
-    }
-
-    // Fonction pour incrémenter le compteur global lors d'un clic
-    function addFollower() {
-      const ref = database.ref('followers/count');
-      ref.transaction(current => (current || 0) + 1);
-      const btn = document.getElementById('follow-btn');
-      btn.disabled = true;
-      btn.textContent = "Merci 🙏";
-      btn.classList.remove("btn-primary");
-      btn.classList.add("btn-success");
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      updateFollowerCount();
+  
+    // Compteur d'abonnés
+    const countRef = database.ref("followers/count");
+    countRef.on("value", snapshot => {
+      const count = snapshot.val() || 0;
+      document.getElementById("follower-count").textContent = `${count} abonnés`;
     });
+  
+    function isValidEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(email);
+    }
+
+        async function validateEmailWithAPI(email) {
+        const apiKey = "5cbb20446ada452f990c857cd3e768b6"; // Remplace par ta vraie clé API
+        const url = `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${email}`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            return data.is_valid_format.value &&
+                !data.is_disposable_email.value &&
+                data.is_smtp_valid.value;
+        } catch (error) {
+            console.error("Erreur de validation API :", error);
+            return false;
+        }
+        }
+
+  
+    const form = document.getElementById("newsletter-form");
+    
+    form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const emailInput = document.getElementById("newsletter-email");
+    const email = emailInput.value.trim().toLowerCase();
+    const messageDiv = document.getElementById("newsletter-message");
+
+    if (!isValidEmail(email)) {
+        messageDiv.textContent = "Format d'adresse email invalide.";
+        messageDiv.classList.remove("text-success");
+        messageDiv.classList.add("text-danger");
+        return;
+    }
+
+    const isValid = await validateEmailWithAPI(email);
+    if (!isValid) {
+        messageDiv.textContent = "Adresse email invalide ou jetable.";
+        messageDiv.classList.remove("text-success");
+        messageDiv.classList.add("text-danger");
+        return;
+    }
+
+    const emailsRef = database.ref("followers/emails");
+
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    });
+
+    firebase.database().ref("followers/emails").push({
+    email: email,
+    date: formattedDate
+    });
+
+
+    emailsRef.once("value", snapshot => {
+        const emails = snapshot.val() || {};
+        const emailExists = Object.values(emails).includes(email);
+
+        if (emailExists) {
+        messageDiv.textContent = "Vous êtes déjà abonné.";
+        messageDiv.classList.remove("text-success");
+        messageDiv.classList.add("text-warning");
+        } else {
+        emailsRef.push(email)
+            .then(() => {
+            countRef.transaction(current => (current || 0) + 1);
+            messageDiv.textContent = "Merci pour votre abonnement !";
+            messageDiv.classList.remove("text-danger", "text-warning");
+            messageDiv.classList.add("text-success");
+            emailInput.value = "";
+            })
+            .catch((error) => {
+            console.error("Erreur lors de l'ajout :", error);
+            messageDiv.textContent = "Erreur lors de l'abonnement.";
+            messageDiv.classList.add("text-danger");
+            });
+        }
+    });
+    });
+
   </script>
+  
+  
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
