@@ -59,8 +59,6 @@
 
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
-    
-
     const tbody = document.getElementById("emails-table-body");
 
     db.ref("followers/emails").once("value", snapshot => {
@@ -69,35 +67,36 @@
 
       if (data) {
         const entries = Object.entries(data);
-        entries.forEach(([key, value], index) => {
-          let email = "";
-          let date = "";
+        const seenEmails = new Set();
+        let count = 0;
 
-          // Gestion format { key: "email" } ou { key: { email: "", date: "" } }
-          if (typeof value === "string") {
-          // Ancienne structure : value est juste une string = l'email
-          email = value;
-          date = "-";
-        } else if (typeof value === "object" && value !== null) {
-          // Nouvelle structure attendue : un objet avec email et date
-          email = typeof value.email === "string" ? value.email : "-";
-          date = typeof value.date === "string" ? value.date : "-";
-        } else {
-          // Cas inattendu
-          email = "-";
-          date = "-";
+        entries.forEach(([key, value]) => {
+          // On ne garde que les objets contenant email ET date
+          if (typeof value === "object" && value.email && value.date) {
+            const email = value.email;
+            const date = value.date;
+
+            // Vérifie si l'email a déjà été ajouté
+            if (!seenEmails.has(email)) {
+              seenEmails.add(email);
+              count++;
+
+              const row = `
+                <tr>
+                  <th scope="row">${count}</th>
+                  <td>${email}</td>
+                  <td>${date}</td>
+                </tr>
+              `;
+              tbody.insertAdjacentHTML("beforeend", row);
+            }
+          }
+        });
+
+        if (count === 0) {
+          tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted">Aucun abonné valide avec date.</td></tr>`;
         }
 
-
-          const row = `
-            <tr>
-              <th scope="row">${index + 1}</th>
-              <td>${email}</td>
-              <td>${date}</td>
-            </tr>
-          `;
-          tbody.insertAdjacentHTML("beforeend", row);
-        });
       } else {
         tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted">Aucun abonné pour le moment.</td></tr>`;
       }
