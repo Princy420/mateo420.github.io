@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 User-agent: *
 Disallow: /admin-secret.html
 Disallow: /admin-dashboard.html
+=======
+Disallow: /admin-secret.html
+>>>>>>> 9ef574f (Mise a jour de robots.txt)

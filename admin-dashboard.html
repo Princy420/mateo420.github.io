@@ -27,8 +27,9 @@
       <table class="table table-striped table-bordered shadow-sm">
         <thead class="table-dark">
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">Id</th>
             <th scope="col">Adresse e-mail</th>
+            <th scope="col">Date</th>
           </tr>
         </thead>
         <tbody id="emails-table-body">
@@ -74,12 +75,19 @@
 
           // Gestion format { key: "email" } ou { key: { email: "", date: "" } }
           if (typeof value === "string") {
-            email = value;
-            date = "-";
-          } else {
-            email = value.email || "-";
-            date = value.date || "-";
-          }
+          // Ancienne structure : value est juste une string = l'email
+          email = value;
+          date = "-";
+        } else if (typeof value === "object" && value !== null) {
+          // Nouvelle structure attendue : un objet avec email et date
+          email = typeof value.email === "string" ? value.email : "-";
+          date = typeof value.date === "string" ? value.date : "-";
+        } else {
+          // Cas inattendu
+          email = "-";
+          date = "-";
+        }
+
 
           const row = `
             <tr>

@@ -298,9 +298,10 @@
     year: "numeric",
     });
 
+    const date = new Date().toLocaleString();
     firebase.database().ref("followers/emails").push({
     email: email,
-    date: formattedDate
+    date: date
     });
 
 
