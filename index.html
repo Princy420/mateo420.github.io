@@ -267,7 +267,7 @@
   
     const form = document.getElementById("newsletter-form");
     
-    form.addEventListener("submit", async function(e) {
+    form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const emailInput = document.getElementById("newsletter-email");
@@ -289,20 +289,24 @@
         return;
     }
 
-    const emailsRef = database.ref("followers/emails");
-
     const now = new Date();
     const formattedDate = now.toLocaleDateString("fr-FR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
     });
 
-    const date = new Date().toLocaleString("fr-FR");
     firebase.database().ref("followers/emails").push({
-    email: email,
-    date: date
+        email: email,
+        date: formattedDate
     });
+
+    messageDiv.textContent = "Merci pour votre inscription !";
+    messageDiv.classList.remove("text-danger");
+    messageDiv.classList.add("text-success");
+    emailInput.value = ""; // Reset le champ
+});
+
 
 
     emailsRef.once("value", snapshot => {
