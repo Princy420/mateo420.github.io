@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Équipe COSA 3 – TOKONTANY BE MALAGASY</title>
+
+  <link rel="icon" href="TBM.jpeg" type="image/jpeg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">TOKONTANY BE MALAGASY</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="activities.html">Activités</a></li>
+          <li class="nav-item"><a class="nav-link" href="programs.html">Programmes</a></li>
+          <li class="nav-item"><a class="nav-link" href="organizations.html">Organisations</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="parallax-section text-white text-center d-flex align-items-center" style="background: #333; height: 300px;">
+    <div class="container">
+      <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Équipe COSA 3</h1>
+      <p class="lead animate__animated animate__fadeInUp">Club Omni-Sport d’Ampandrana – Rugby & Football</p>
+    </div>
+  </section>
+
+  <!-- Présentation -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-6 mb-4 animate__animated animate__fadeInLeft">
+          <h3 class="fw-bold text-primary">Section Rugby</h3>
+          <p>Notre équipe de rugby forme des jeunes passionnés et participe à des compétitions régionales avec détermination et esprit d’équipe.</p>
+        </div>
+        <div class="col-md-6 mb-4 animate__animated animate__fadeInRight">
+          <h3 class="fw-bold text-success">Section Football</h3>
+          <p>La section football du COSA 3 accueille des joueurs de tous âges pour les former techniquement et tactiquement dans une ambiance conviviale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerie -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5 animate__animated animate__fadeIn">Galerie des équipes</h2>
+      <div class="row g-4">
+        <div class="col-md-4 animate__animated animate__zoomIn"><img src="img/rugby1.jpg" class="img-fluid rounded shadow" alt="Rugby COSA 3"></div>
+        <div class="col-md-4 animate__animated animate__zoomIn animate__delay-1s"><img src="img/foot1.jpg" class="img-fluid rounded shadow" alt="Football COSA 3"></div>
+        <div class="col-md-4 animate__animated animate__zoomIn animate__delay-2s"><img src="img/equipe.jpg" class="img-fluid rounded shadow" alt="Équipe complète"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION CALENDRIER -->
+  <section class="container py-5">
+    <h2 class="text-center mb-4">Calendrier des matchs</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Équipe</th>
+            <th>Adversaire</th>
+            <th>Lieu</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody id="calendrier-body">
+          <!-- Les données seront insérées ici -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Entraîneurs -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5 animate__animated animate__fadeIn">Nos entraîneurs</h2>
+      <div class="row text-center">
+        <div class="col-md-6 mb-4 animate__animated animate__fadeInLeft">
+          <img src="img/coach-rugby.jpg" alt="Coach Rugby" class="rounded-circle mb-3" width="150">
+          <h5>Andry Rakoto</h5>
+          <p class="text-muted">Entraîneur principal Rugby</p>
+        </div>
+        <div class="col-md-6 mb-4 animate__animated animate__fadeInRight">
+          <img src="img/coach-foot.jpg" alt="Coach Foot" class="rounded-circle mb-3" width="150">
+          <h5>Feno Rajaona</h5>
+          <p class="text-muted">Entraîneur principal Football</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appel à l'action -->
+  <section class="py-5 bg-dark text-white text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-3 animate__animated animate__pulse">Envie de rejoindre notre équipe ?</h2>
+      <p class="mb-4">Nous accueillons joueurs, supporters et bénévoles. Contactez-nous ou venez nous voir au stade !</p>
+      <a href="contact.html" class="btn btn-outline-light btn-lg animate__animated animate__fadeInUp">Nous contacter</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center pt-5 pb-4">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-3 mb-4">
+          <h5>Liens rapides</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Accueil</a></li>
+            <li><a href="about.html" class="text-white">À propos</a></li>
+            <li><a href="activities.html" class="text-white">Activités</a></li>
+            <li><a href="programs.html" class="text-white">Programmes</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Nos services</h5>
+          <ul class="list-unstyled">
+            <li><a href="aide-sans-abris.html" class="text-white">Aide aux sans-abris</a></li>
+            <li><a href="equipes-sportives.html" class="text-white">Équipes sportives</a></li>
+            <li><a href="programmes-educatifs.html" class="text-white">Programmes éducatifs</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Suivez-nous</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://www.facebook.com/profile.php?id=61567949001928" class="text-white"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="https://wa.me/261345045624" class="text-white"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Contactez-nous</h5>
+          <p><i class="fas fa-map-marker-alt"></i> Antananarivo, Madagascar</p>
+          <p><i class="fas fa-phone"></i> +261 34 50 456 24</p>
+          <p><i class="fas fa-envelope"></i> tokontanybemalagasy@gmail.com</p>
+        </div>
+      </div>
+      <p class="mb-0">&copy; 2025 TOKONTANY BE MALAGASY - by Princy Rajaonarison</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database-compat.js"></script>
+  <script>
+    // Configuration Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZm_y9tMv4-0aXcD6b3VRFu0eh5IxlGm8",
+      authDomain: "tokontany-followers.firebaseapp.com",
+      databaseURL: "https://tokontany-followers-default-rtdb.firebaseio.com",
+      projectId: "tokontany-followers",
+      storageBucket: "tokontany-followers.appspot.com",
+      messagingSenderId: "1234567890",
+      appId: "1:1234567890:web:exampleappid"
+    };
+  
+    // Initialiser Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const matchsRef = db.ref("matchs");
+    
+    // Écouter les changements une seule fois
+    matchsRef.on("value", (snapshot) => {
+    const tableBody = document.getElementById("calendrier-body");
+    tableBody.innerHTML = "";
+
+    if (snapshot.exists()) {
+      snapshot.forEach((childSnapshot) => {
+        const match = childSnapshot.val();
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${match.date || "-"}</td>
+          <td>${match.heure || "-"}</td>
+          <td>${match.equipe || "-"}</td>
+          <td>${match.adversaire || "-"}</td>
+          <td>${match.lieu || "-"}</td>
+          <td>${match.type || "-"}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    } else {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td colspan="6" class="text-center">Aucun match prévu actuellement.</td>`;
+      tableBody.appendChild(row);
+    }
+  });
+  </script>
+  
+</body>
+</html>

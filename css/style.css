@@ -824,4 +824,45 @@ footer {
   .carousel img.visible {
     display: block;
   }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+  }
+  
+  h1, h2, h5 {
+    font-weight: 700;
+  }
+  
+  a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #00bfa5;
+  }
+  
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #00796b;
+    border-color: #ffffff;
+  }
+  
+  .cta-section {
+    background: linear-gradient(135deg, #00796b, #004d40);
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
   

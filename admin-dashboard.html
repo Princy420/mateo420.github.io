@@ -42,12 +42,58 @@
     </div>
   </div>
 
+<!-- Formulaire Match -->
+<div class="container table-container">
+  <h2 class="text-center mb-4">🏆 Gestion des matchs COSA 3</h2>
+  <form id="match-form" class="shadow p-4 bg-white rounded">
+    <div class="row g-3">
+      <div class="col-md-4">
+        <label class="form-label">Date</label>
+        <input type="date" id="match-date" class="form-control" required>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Équipe</label>
+        <input type="text" id="match-equipe" class="form-control" placeholder="Nom de votre equipe" required>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Adversaire</label>
+        <input type="text" id="match-adversaire" class="form-control" placeholder="Votre adevrsaire" required>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Lieu</label>
+        <input type="text" id="match-lieu" class="form-control" placeholder="Lieu du match" required>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Heure</label>
+        <input type="time" id="match-heure" class="form-control" required>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Type</label>
+        <select id="match-type" class="form-select" required>
+          <option value="">Choisir...</option>
+          <option value="Rugby">Rugby</option>
+          <option value="Football">Football</option>
+        </select>
+      </div>
+      <div class="col-md-6 d-flex align-items-end">
+        <button type="button" id="add-match" class="btn btn-success w-100">
+          <i class="fas fa-plus"></i> Ajouter
+        </button>
+      </div>
+      <div class="col-md-6 d-flex align-items-end">
+        <button type="button" id="update-match" class="btn btn-warning w-100">
+          <i class="fas fa-pen"></i> Modifier
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
 
   <script>
-    // Config Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyAO-ZOlRKJRj319BAdbJM1DAInBEEWJsOg",
       authDomain: "tokontany-followers.firebaseapp.com",
@@ -60,6 +106,8 @@
 
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
+
+    // Liste des abonnés
     const tbody = document.getElementById("emails-table-body");
 
     db.ref("followers/emails").once("value", snapshot => {
@@ -72,16 +120,13 @@
         let count = 0;
 
         entries.forEach(([key, value]) => {
-          // On ne garde que les objets contenant email ET date
           if (typeof value === "object" && value.email && value.date) {
             const email = value.email;
             const date = value.date;
 
-            // Vérifie si l'email a déjà été ajouté
             if (!seenEmails.has(email)) {
               seenEmails.add(email);
               count++;
-
               const row = `
                 <tr>
                   <th scope="row">${count}</th>
@@ -97,16 +142,145 @@
         if (count === 0) {
           tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted">Aucun abonné valide avec date.</td></tr>`;
         }
-
       } else {
         tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted">Aucun abonné pour le moment.</td></tr>`;
       }
     }).catch(error => {
-      console.error("Erreur lors de la récupération :", error);
+      console.error("Erreur :", error);
       tbody.innerHTML = `<tr><td colspan="3" class="text-center text-danger">Erreur de chargement.</td></tr>`;
+    });
+
+    // Récupère les champs
+    const getMatchInputs = () => {
+      return {
+        date: document.getElementById("match-date").value,
+        equipe: document.getElementById("match-equipe").value,
+        lieu: document.getElementById("match-lieu").value,
+        type: document.getElementById("match-type").value
+      };
+    };
+
+    const resetForm = () => {
+      document.getElementById("match-form").reset();
+    };
+
+    // Ajouter un match
+    document.getElementById("add-match").addEventListener("click", () => {
+      const { date, equipe, lieu, type } = getMatchInputs();
+      if (!date || !equipe || !lieu || !type) return alert("Tous les champs sont requis.");
+
+      const matchId = date + "-" + type.toLowerCase();
+
+      db.ref("matchs/" + matchId).once("value").then(snapshot => {
+        if (snapshot.exists()) {
+          alert("Un match avec cette date et ce type existe déjà.");
+        } else {
+          db.ref("matchs/" + matchId).set({ date, equipe, lieu, type })
+            .then(() => {
+              alert("Match ajouté !");
+              resetForm();
+            });
+        }
+      });
+    });
+
+    // Modifier un match
+    document.getElementById("update-match").addEventListener("click", () => {
+      const { date, equipe, lieu, type } = getMatchInputs();
+      if (!date || !equipe || !lieu || !type) return alert("Tous les champs sont requis.");
+
+      const matchId = date + "-" + type.toLowerCase();
+
+      db.ref("matchs/" + matchId).once("value").then(snapshot => {
+        if (snapshot.exists()) {
+          db.ref("matchs/" + matchId).update({ date, equipe, lieu, type })
+            .then(() => {
+              alert("Match modifié !");
+              resetForm();
+            });
+        } else {
+          alert("Ce match n'existe pas encore. Utilise plutôt le bouton Ajouter.");
+        }
+      });
     });
   </script>
 
+  <script>
+    const matchForm = document.getElementById("match-form");
+    const addBtn = document.getElementById("add-match");
+
+    addBtn.addEventListener("click", () => {
+      const date = document.getElementById("match-date").value;
+      const equipe = document.getElementById("match-equipe").value;
+      const adversaire = document.getElementById("match-adversaire").value;
+      const lieu = document.getElementById("match-lieu").value;
+      const heure = document.getElementById("match-heure").value;
+      const type = document.getElementById("match-type").value;
+
+      const newMatch = {
+        date,
+        equipe,
+        adversaire,
+        lieu,
+        heure,
+        type
+      };
+
+      const newMatchRef = firebase.database().ref("matchs").push();
+      newMatchRef.set(newMatch);
+
+      matchForm.reset();
+    });
+  </script>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBnpKdB64P8ILf3u-VNBtCEkZVeWQjZ4i8",
+      authDomain: "tokontany-followers.firebaseapp.com",
+      databaseURL: "https://tokontany-followers-default-rtdb.firebaseio.com",
+      projectId: "tokontany-followers",
+      storageBucket: "tokontany-followers.appspot.com",
+      messagingSenderId: "248121413011",
+      appId: "1:248121413011:web:50de451cb22f7acbcfdb2a"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+  
+    const matchForm = document.getElementById('addMatchForm');
+  
+    matchForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      const date = document.getElementById('matchDate').value;
+      const heure = document.getElementById('matchTime').value;
+      const type = document.getElementById('matchType').value;
+      const equipe = document.getElementById('matchEquipe').value;
+      const adversaire = document.getElementById('matchAdversaire').value;
+      const lieu = document.getElementById('matchLieu').value;
+  
+      const newMatchRef = push(ref(db, 'matchs'));
+      set(newMatchRef, {
+        date,
+        heure,
+        type,
+        equipe,
+        adversaire,
+        lieu
+      }).then(() => {
+        alert("Match ajouté avec succès !");
+        matchForm.reset();
+      }).catch((error) => {
+        alert("Erreur lors de l'ajout : " + error.message);
+      });
+    });
+  </script>
+  
 </body>
 </html>
